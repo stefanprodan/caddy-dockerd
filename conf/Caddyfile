@@ -1,7 +1,7 @@
 :7575 {
     ipfilter / {
         rule allow
-        ip ${IP}
+        ip {$IP}
     }
     proxy / localhost:2375 {
         transparent
