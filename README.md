@@ -19,6 +19,20 @@ ExecStart=/usr/bin/dockerd -H fd:// \
 
 ### Run Caddy
 
+Filter Docker API access by IPv4 or IPv6 or range of IPs
+
 ```bash
-docker run -d -e IP=86.124.244.168 --net=host --name=caddy-dockerd --restart=always stefanprodan/caddy-dockerd
+docker run -d -e IP=86.124.244.168 \
+    --net=host \
+    --name=caddy-dockerd \
+    --restart=always \
+    stefanprodan/caddy-dockerd
+```
+
+### Docker remote access
+
+```bash
+$ export DOCKER_HOST=tcp://<DOCKER-IP>:7575
+
+$ docker info
 ```
