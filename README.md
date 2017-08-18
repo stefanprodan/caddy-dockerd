@@ -29,6 +29,18 @@ docker run -d -e IP=86.124.244.168 \
     stefanprodan/caddy-dockerd
 ```
 
+Docker Swarm service:
+
+```bash
+docker service create -d -e IP=188.27.83.136/30 \
+    --network=host \
+    --name=caddy-docker \
+    --mode global \
+    --constraint 'node.role == manager' \
+    --hostname="{{.Node.ID}}-{{.Service.Name}}" \
+    stefanprodan/caddy-dockerd
+```
+
 ### Docker remote access
 
 ```bash
