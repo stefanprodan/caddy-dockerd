@@ -1,10 +1,10 @@
 # caddy-dockerd
 
-Caddy reverse proxy for Docker Remote API with IP filter
+Caddy reverse proxy for Docker Remote API with IP filtering. 
 
 ### Setup dockerd
 
-Expose Docker remote API on localhost in /etc/systemd/system/docker.service.d/docker.conf
+Expose Docker remote API on localhost port 2375 in /etc/systemd/system/docker.service.d/docker.conf
 
 ```bash
 [Service]
@@ -37,8 +37,13 @@ docker service create -d -e IP=188.27.83.136/30 \
     --name=caddy-docker \
     --mode global \
     --constraint 'node.role == manager' \
-    --hostname="{{.Node.ID}}-{{.Service.Name}}" \
     stefanprodan/caddy-dockerd
+```
+
+Test access on port 7575 with curl:
+
+```bash
+curl <DOCKER-IP>:7575/containers/json
 ```
 
 ### Docker remote access
