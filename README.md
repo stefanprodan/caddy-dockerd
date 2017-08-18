@@ -34,7 +34,7 @@ Docker Swarm service:
 ```bash
 docker service create -d -e IP=188.27.83.136/30 \
     --network=host \
-    --name=caddy-docker \
+    --name=caddy-dockerd \
     --mode global \
     --constraint 'node.role == manager' \
     stefanprodan/caddy-dockerd
@@ -43,7 +43,7 @@ docker service create -d -e IP=188.27.83.136/30 \
 Test access on port 7575 with curl:
 
 ```bash
-curl <DOCKER-IP>:7575/containers/json
+curl <DOCKER-IP>:7575/version
 ```
 
 ### Docker remote access
