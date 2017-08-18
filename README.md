@@ -1,5 +1,7 @@
 # caddy-dockerd
 
+[![Docker Image](https://images.microbadger.com/badges/image/stefanprodan/caddy-dockerd.svg)](https://hub.docker.com/r/stefanprodan/caddy-dockerd)
+
 Caddy reverse proxy for Docker Remote API with IP filtering. 
 
 ### Setup dockerd
