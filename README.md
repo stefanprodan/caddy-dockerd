@@ -28,6 +28,7 @@ docker run -d -e IP=86.124.244.168 \
     --net=host \
     --name=caddy-dockerd \
     --restart=always \
+    -v /var/run/docker.sock:/var/run/docker.sock \
     stefanprodan/caddy-dockerd
 ```
 
@@ -39,6 +40,7 @@ docker service create -d -e IP=188.27.83.136/30 \
     --name=caddy-dockerd \
     --mode global \
     --constraint 'node.role == manager' \
+    --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock \
     stefanprodan/caddy-dockerd
 ```
 
